@@ -7,6 +7,15 @@ namespace CSharpDaily
     {
         static void Main(string[] args)
         {
+
+            //WORKING WITH NUMBERS
+
+            //INTERGER AND FLOATING  POINT NUMBERS
+            //INT ARE WHOLE NUMBERS CAN BE POSITIVE OR NEGATIVE
+            //FLOATING POINT NUMBERS WITH ONE OR MORE DECIMAL
+
+            
+
             //Console.WriteLine("Hello World!");
             //DEFAULT VALUES IN C#
 
