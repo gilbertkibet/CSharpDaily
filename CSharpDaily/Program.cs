@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Security.Cryptography.X509Certificates;
-
+using System.Text;
 namespace CSharpDaily
 {
     class Program
@@ -14,19 +14,19 @@ namespace CSharpDaily
             //INT ARE WHOLE NUMBERS CAN BE POSITIVE OR NEGATIVE
             //FLOATING POINT NUMBERS WITH ONE OR MORE DECIMAL
 
-            
+
 
             //Console.WriteLine("Hello World!");
             //DEFAULT VALUES IN C#
 
             // int x = default;
-            int i = 10, j = 20;
+            //int i = 10, j = 20;
 
-            if (i < j)
+            //if (i < j)
 
-            {
-                //Console.WriteLine("this is true");
-            }
+            //{
+            //    //Console.WriteLine("this is true");
+            //}
 
             //YOU CAN CALL A METHOD THAT RETURN A BOOLEAN INSIDE AN IF STATEMENT
 
@@ -72,20 +72,60 @@ namespace CSharpDaily
             //var outPut = i < j ? "i is less than j" : "i is greater than j";
 
             //Console.WriteLine(outPut);
-            
-            switch (i)
-            {
-                case 0:
-                    Console.WriteLine("IS IS ZERO");
-                    break;
-                case 10:
-                    Console.WriteLine("The value of i is 10");
-                    break;
-                default:
-                    Console.WriteLine("This is unknown values");
-                    break;
-            }
 
+            //switch (i)
+            //{
+            //    case 0:
+            //        Console.WriteLine("IS IS ZERO");
+            //        break;
+            //    case 10:
+            //        Console.WriteLine("The value of i is 10");
+            //        break;
+            //    default:
+            //        Console.WriteLine("This is unknown values");
+            //        break;
+            //}
+
+            //STRING BUILDER IN C#
+
+            string message = "Hello World";
+
+            StringBuilder stringBuilder= new StringBuilder(message);
+
+            //String builder is not a string so you can retrieve a string using ToString();
+
+            var stringMessage= stringBuilder.ToString();    
+
+            Console.WriteLine(stringMessage);
+
+
+            //to append a string to the end use AppendMethod
+
+
+            //STRING BUILDER METHODS
+
+            StringBuilder myname = new StringBuilder("Gilbert");
+
+            myname.Append("kibet");
+
+            Console.WriteLine(myname.ToString());
+
+            // insert to insert a stringto
+
+            myname.Insert(5, "korir");
+
+            Console.WriteLine(myname.ToString());
+
+
+            //remove is used to remove
+            myname.Remove(0, 2);
+            Console.WriteLine(myname.ToString());
+
+
+            //you can replace string 
+
+            myname.Replace("korir", "simon");
+            Console.WriteLine(myname.ToString());   
         }
     }
 }
