@@ -90,11 +90,11 @@ namespace CSharpDaily
 
             string message = "Hello World";
 
-            StringBuilder stringBuilder= new StringBuilder(message);
+            StringBuilder stringBuilder = new StringBuilder(message);
 
             //String builder is not a string so you can retrieve a string using ToString();
 
-            var stringMessage= stringBuilder.ToString();    
+            var stringMessage = stringBuilder.ToString();
 
             Console.WriteLine(stringMessage);
 
@@ -125,7 +125,38 @@ namespace CSharpDaily
             //you can replace string 
 
             myname.Replace("korir", "simon");
-            Console.WriteLine(myname.ToString());   
+            Console.WriteLine(myname.ToString());
+
+
+
+            ///Accessing enum values
+
+            Console.WriteLine(WeekDays.Friday);
+
+            //to get intergral type we used explicit typecasting
+
+            int friday = (int)WeekDays.Monday;
+
+            Console.WriteLine(friday);
+
+            var WK = (WeekDays)6;
+
+            Console.WriteLine(WK);
         }
     }
+
+  public enum WeekDays
+    {
+
+        Monday,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
+    }
+    //Accessing enums
+    
+
 }
