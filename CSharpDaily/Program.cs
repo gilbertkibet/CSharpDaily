@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 namespace CSharpDaily
@@ -8,6 +11,30 @@ namespace CSharpDaily
         static void Main(string[] args)
         {
 
+            IList<STUDENT> listofstudents = new List<STUDENT>()
+            {
+                new STUDENT(){studentid=12,studentname="albert",age=23},
+                new STUDENT(){studentid=13,studentname="kibet",age=24},
+                new STUDENT(){studentid=14,studentname="bett",age=25},
+                new STUDENT(){studentid=15,studentname="muthomi",age=26,
+            } };
+
+           var STUDENTS= from s in listofstudents
+            select new
+            {
+                Id = s.studentid,
+                Name = s.studentname,
+                Age=s.age
+
+            };
+
+            
+            foreach ( var stud in STUDENTS ) {
+                Console.WriteLine(stud.Id + "-" + stud.Name);
+            }
+            //first linq query
+
+            
             //WORKING WITH NUMBERS
 
             //INTERGER AND FLOATING  POINT NUMBERS
@@ -175,9 +202,63 @@ namespace CSharpDaily
                 Console.WriteLine(dt);
             else
                 Console.WriteLine($"{str} is not a valid date string");
+
+
+            //Accessing enums
+
+
+            //ANONYMOUS TYPES IN C# class without a name contain public readonly properties cannot contains fields events and methods we use var and new 
+            //to declare anonymous objects
+
+            //CREATING ANONYMOUS TYPE STUDENT CONTAININ ID FIRSTNAME AND LASTNAME there are readonly and cannot be initialized with null anonymousfunction
+            //pointertype
+            var student = new {
+                Id=1,
+                FirstName="Gilbert",
+                LastName="Kibet"
+            };
+
+            //accessing
+
+            Console.WriteLine(student.FirstName);
+            //it can contain other anonymous type
+            var student1 = new
+            {
+                Id = 1,
+                FirstName = "Gilbert",
+                LastName = "Kibet",
+                address = new
+                {
+                    Id = 1,
+                    City="Nairobi",
+                    Country="Kenya"
+                }
+            };
+
+            Console.WriteLine(student1.address.Country);
+            //you can create array of anonymous type
+            var students = new[] {
+            new { Id = 1, FirstName = "James", LastName = "Bond" },
+            new { Id = 2, FirstName = "Steve", LastName = "Jobs" },
+            new { Id = 3, FirstName = "Bill", LastName = "Gates" }
+    };
+
+            //creating list of students
+
+          
         }
     }
+    //Class student
 
+    public class STUDENT
+    {
+        public int studentid {get;set;}
+
+        public string studentname { get; set; }
+
+        public int age { get; set; }
+
+    };
   public enum WeekDays
     {
 
@@ -189,7 +270,5 @@ namespace CSharpDaily
         Saturday,
         Sunday
     }
-    //Accessing enums
     
-
 }
