@@ -142,6 +142,39 @@ namespace CSharpDaily
             var WK = (WeekDays)6;
 
             Console.WriteLine(WK);
+
+            //WORKING WITH DATETIME IN C#  CREATE AN INSTANCE OF DATETIME STRUCT
+            DateTime dt = new DateTime();
+
+            Console.WriteLine(dt);
+
+            //assing year month and date
+
+            DateTime today = new DateTime(2023, 03, 05);
+            Console.WriteLine(today);
+
+
+
+            //assigns year, month, day, hour, min, seconds
+            DateTime dt3 = new DateTime(2015, 12, 31, 5, 10, 20);
+            Console.WriteLine(dt3);
+            //assigns year, month, day, hour, min, seconds, UTC timezone
+            DateTime dt4 = new DateTime(2015, 12, 31, 5, 10, 20, DateTimeKind.Utc);
+
+            Console.WriteLine(dt4);
+
+            //CONVERTING STRING TO DATETIME VALID DATETIME IN STRING  CAN BE CONVERTED TO DATETIME USING PARSE()PARSEEXACT(),TRYPARSE(),TRYPARSEXACT()
+
+            var str = "5/12/2020";
+
+            DateTime DTT;
+
+            var isValidDate = DateTime.TryParse(str, out DTT);
+
+            if (isValidDate)
+                Console.WriteLine(dt);
+            else
+                Console.WriteLine($"{str} is not a valid date string");
         }
     }
 
