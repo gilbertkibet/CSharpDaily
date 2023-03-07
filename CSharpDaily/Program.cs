@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
@@ -244,8 +245,38 @@ namespace CSharpDaily
     };
 
             //creating list of students
+            
+            //LEARNING AND UNDERSTANDING NULLLABLE TYPES
 
-          
+            //int age= null; //throws error value types cannot be assigned to null
+            int? myAge = null;
+            Nullable<int> i = null;
+            bool hasV = i.HasValue;
+            double? d = null;
+
+
+            //ASSINGNING NULLABLE TYPE TO NONNULL USING ??  otherwise it will throw run time exception
+
+
+            int j = myAge ?? 0;
+
+            Console.WriteLine(j);
+
+
+            //use nullable.Com
+
+           
+                int? iii = null;
+                int ji = 10;
+
+                if (Nullable.Compare<int>(i, j) < 0)
+                    Console.WriteLine("i < j");
+                else if (Nullable.Compare<int>(i, j) > 0)
+                    Console.WriteLine("i > j");
+                else
+                    Console.WriteLine("i = j");
+            
+            //
         }
     }
     //Class student
