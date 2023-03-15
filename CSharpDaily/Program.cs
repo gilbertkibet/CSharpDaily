@@ -20,22 +20,23 @@ namespace CSharpDaily
                 new STUDENT(){studentid=15,studentname="muthomi",age=26,
             } };
 
-           var STUDENTS= from s in listofstudents
-            select new
+            var STUDENTS = from s in listofstudents
+                           select new
+                           {
+                               Id = s.studentid,
+                               Name = s.studentname,
+                               Age = s.age
+
+                           };
+
+
+            foreach (var stud in STUDENTS)
             {
-                Id = s.studentid,
-                Name = s.studentname,
-                Age=s.age
-
-            };
-
-            
-            foreach ( var stud in STUDENTS ) {
                 Console.WriteLine(stud.Id + "-" + stud.Name);
             }
             //first linq query
 
-            
+
             //WORKING WITH NUMBERS
 
             //INTERGER AND FLOATING  POINT NUMBERS
@@ -213,10 +214,11 @@ namespace CSharpDaily
 
             //CREATING ANONYMOUS TYPE STUDENT CONTAININ ID FIRSTNAME AND LASTNAME there are readonly and cannot be initialized with null anonymousfunction
             //pointertype
-            var student = new {
-                Id=1,
-                FirstName="Gilbert",
-                LastName="Kibet"
+            var student = new
+            {
+                Id = 1,
+                FirstName = "Gilbert",
+                LastName = "Kibet"
             };
 
             //accessing
@@ -231,8 +233,8 @@ namespace CSharpDaily
                 address = new
                 {
                     Id = 1,
-                    City="Nairobi",
-                    Country="Kenya"
+                    City = "Nairobi",
+                    Country = "Kenya"
                 }
             };
 
@@ -245,7 +247,7 @@ namespace CSharpDaily
     };
 
             //creating list of students
-            
+
             //LEARNING AND UNDERSTANDING NULLLABLE TYPES
 
             //int age= null; //throws error value types cannot be assigned to null
@@ -265,32 +267,98 @@ namespace CSharpDaily
 
             //use nullable.Com
 
-           
-                int? iii = null;
-                int ji = 10;
 
-                if (Nullable.Compare<int>(i, j) < 0)
-                    Console.WriteLine("i < j");
-                else if (Nullable.Compare<int>(i, j) > 0)
-                    Console.WriteLine("i > j");
-                else
-                    Console.WriteLine("i = j");
+            int? iii = null;
+            int ji = 10;
+
+            if (Nullable.Compare<int>(i, j) < 0)
+                Console.WriteLine("i < j");
+            else if (Nullable.Compare<int>(i, j) > 0)
+                Console.WriteLine("i > j");
+            else
+                Console.WriteLine("i = j");
+
+            //LEARNING AND  UNDERSTANDING LISTS IN C#
+
+            List<int> primeNumbers = new List<int>();
+
+            primeNumbers.Add(1);
+
+            primeNumbers.Add(2);
+
+            Console.WriteLine(primeNumbers[0]);
+
+            //using var keyword
+            var cities= new List<string>();
+
+            cities.Add("Nairobi");
+            cities.Add("Kisumu");
+            cities.Add("Nakuru");
+            cities.Add("Mombasa");
+
+            //using collection initilizer syntx
+
+            var bigCities = new List<string>()
+            {
+                "Nairobi",
+                "Mombasa"
+            };
+           
             
-            //
+            //list of anonymous objects
+
+            var studentsList = new List<STUDENT>()
+            { 
+            
+             new STUDENT(){studentid=123,age=23,studentname="gilbert kibet"},
+             new STUDENT(){studentid=123,age=23,studentname="gilber korir"},
+             new STUDENT(){studentid=123,age=23,studentname="gilbe tonui"},
+             new STUDENT(){studentid=123,age=23,studentname="gilb bett"},
+             
+            
+            };
+
+            foreach (STUDENT stud in studentsList)
+            {
+                var studentNames = stud.studentname;
+                Console.WriteLine(studentNames);
+            };
+
+            //you can add array to list usinf addrange
+
+            var citiees = new string[2] { "eee","rrrr"};
+
+            List<string> ccc = new List<string>();
+            ccc.AddRange(citiees);
+
+            ///inserting elements in a list
+
+            List<int> numbersss = new List<int>() { 1, 3, 4, 5,6,7,8,9,10 };
+
+            numbersss.Insert(1, 2);
+            Console.WriteLine(numbersss[1]);
+
+            //remove elements in a list
+            // numbersss.RemoveAt(1);
+            numbersss.Remove(3);
+            foreach(int ii in numbersss)
+            { 
+                Console.WriteLine(ii);  
+            }
         }
     }
     //Class student
 
     public class STUDENT
     {
-        public int studentid {get;set;}
+        public int studentid { get; set; }
 
         public string studentname { get; set; }
 
         public int age { get; set; }
 
     };
-  public enum WeekDays
+    public enum WeekDays
     {
 
         Monday,
@@ -301,5 +369,5 @@ namespace CSharpDaily
         Saturday,
         Sunday
     }
-    
+
 }
