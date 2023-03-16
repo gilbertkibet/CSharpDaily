@@ -289,7 +289,7 @@ namespace CSharpDaily
             Console.WriteLine(primeNumbers[0]);
 
             //using var keyword
-            var cities= new List<string>();
+            var cities = new List<string>();
 
             cities.Add("Nairobi");
             cities.Add("Kisumu");
@@ -303,19 +303,19 @@ namespace CSharpDaily
                 "Nairobi",
                 "Mombasa"
             };
-           
-            
+
+
             //list of anonymous objects
 
             var studentsList = new List<STUDENT>()
-            { 
-            
+            {
+
              new STUDENT(){studentid=123,age=23,studentname="gilbert kibet"},
              new STUDENT(){studentid=123,age=23,studentname="gilber korir"},
              new STUDENT(){studentid=123,age=23,studentname="gilbe tonui"},
              new STUDENT(){studentid=123,age=23,studentname="gilb bett"},
-             
-            
+
+
             };
 
             foreach (STUDENT stud in studentsList)
@@ -326,25 +326,75 @@ namespace CSharpDaily
 
             //you can add array to list usinf addrange
 
-            var citiees = new string[2] { "eee","rrrr"};
+            var citiees = new string[2] { "eee", "rrrr" };
 
             List<string> ccc = new List<string>();
             ccc.AddRange(citiees);
 
             ///inserting elements in a list
 
-            List<int> numbersss = new List<int>() { 1, 3, 4, 5,6,7,8,9,10 };
+            List<int> numbersss = new List<int>() { 1, 3, 4, 5, 6, 7, 8, 9, 10 };
 
             numbersss.Insert(1, 2);
+
             Console.WriteLine(numbersss[1]);
 
             //remove elements in a list
             // numbersss.RemoveAt(1);
             numbersss.Remove(3);
-            foreach(int ii in numbersss)
-            { 
-                Console.WriteLine(ii);  
+
+            foreach (int ii in numbersss)
+            {
+                Console.WriteLine(ii);
             }
+
+            //LEARNING AND UNDERSTANDING DICTIONARY IN C#
+
+            //DICTIONARY<TKEY,TVALUE> STOREKEY VALUE PAIRS  SYTEM COLLECTIONS GENERIC  IDictionary<tkey,tvalue>
+            //keys can never be null and unique  ...values can be accesed by passing associated key in indexere
+            //myDictionary[key]
+
+            IDictionary<int, string> numberNames = new Dictionary<int, string>();
+
+            numberNames.Add(1, "one");
+            numberNames.Add(2, "two");
+            numberNames.Add(3, "Three");
+
+            //
+            Dictionary<int, string> countryNames = new Dictionary<int, string>();
+            //ADD  ITEMS TO A DICTIONATU
+            countryNames.Add(254, "Kenya");
+            countryNames.Add(213, "Algeria");
+            countryNames.Add(20, "Egypt");
+            countryNames.Add(255, "Uganda");
+
+            ///country having value key 254
+
+            string kk = countryNames[254];
+            //adding elements to dictionary using collection initilaizerr sytn
+            var mySongs = new Dictionary<string, string>()
+            {
+                {"diamond" ,"zuwena"},
+                {"alikiba" ,"mahaba"}
+            };
+            //changing valuesof a dictionary
+            mySongs["diamond"] = "kwangaru";
+
+            //acesinf element of dictionary using 
+            //removing songs
+
+            mySongs.Remove("diamond");
+            var diomondsong = mySongs["diamond"];
+            //we can also loop through the elements of dictionary using for each loop
+
+            foreach (KeyValuePair<string, string> songs in mySongs)
+            {
+                Console.WriteLine("{0}:{1}", songs.Key, songs.Value);
+            }
+      
+
+
+
         }
     }
     //Class student
